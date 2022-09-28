@@ -1,9 +1,11 @@
 <?php 
     include('config.php'); 
 
+    // Showing ERROR
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+   
 
     $username = $password = $first_name = $last_name = $address = "";
     $email = $phone_number = $DOB = $user_type = "";
@@ -32,7 +34,6 @@
           } else{
               echo "Something went wrong." . mysqli_stmt_error($stmt);
           }
-          // Close statement
           mysqli_stmt_close($stmt);
       }
       else{
