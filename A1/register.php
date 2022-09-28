@@ -1,47 +1,4 @@
-<?php 
-    include('config.php'); 
-
-    // Showing ERROR
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-   
-
-    $username = $password = $first_name = $last_name = $address = "";
-    $email = $phone_number = $DOB = $user_type = "";
-
-    // Processing form data when form is submitted
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-      $sql = "INSERT INTO Users (username, password, first_name, last_name, address, email, phone_number, DOB, user_type) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-              
-      if($stmt = mysqli_prepare($conn, $sql)){
-          // Bind variables to the prepared statement as parameters
-          mysqli_stmt_bind_param($stmt, "sssssssss", $username, $password, $first_name, $last_name, $email, $address, $phone_number, $DOB, $user_type);
-          // Set parameters
-          $username = $_POST["username"];
-          $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Creates a password hash
-          $first_name = $_POST["first_name"];
-          $last_name = $_POST["last_name"];
-          $address = $_POST["address"];
-          $email = $_POST["email"];
-          $phone_number = $_POST["phone_number"];
-          $DOB = date('y-m-d', strtotime($_POST["DOB"]));
-          $user_type = $_POST["user_type"];
-
-          if(mysqli_stmt_execute($stmt)){
-              header("location: login.php");
-          } else{
-              echo "Something went wrong." . mysqli_stmt_error($stmt);
-          }
-          mysqli_stmt_close($stmt);
-      }
-      else{
-          echo "Something went wrong.";
-      }
-  }
-?>
-
+<?php include 'register-service.php'; ?>
 
 <!DOCTYPE html>
 <html>
@@ -49,12 +6,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" , initial-scale=1, shrink-to-fit=no">
-  <!-- Scripts for Bootstrap-->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 </head>
 
 <body>
