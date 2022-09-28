@@ -8,5 +8,6 @@
 </head>
 <body>
   <h1>Administrator</h1>
+  <h2>Test Github Webhook</h2>
 </body>
 </html>
