@@ -73,6 +73,7 @@
                 <label>End Date</label>
                 <input type="text" class="form-control" placeholder="Placeholder Input" disabled>
             </div>
+            <button type="submit" class="btn btn-primary mb-2">Create Course</button>
         </form>
     </div>
 </body>
