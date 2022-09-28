@@ -1,5 +1,3 @@
-<?php include 'create-service.php' ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +17,7 @@
 <body>
     <div class="container-fluid" style="margin-top: 75px">
         <h2>Create Course</h2>
-        <form action="course-create" method="POST">
+        <form action="course-create" id="courseForm" name="courseForm" onsubmit="return validateForm()" method="POST">
             <div class="form-group">
                 <label>Course Code</label>
                 <input type="text" name="course_code" class="form-control">
@@ -76,6 +74,17 @@
             <button type="submit" class="btn btn-primary mb-2">Create Course</button>
         </form>
     </div>
+
+    <script>
+        function validateForm() {
+            let form = document.forms["courseForm"];
+            // VALIDATE HERE
+        }   
+
+        function submit() {
+            document.getElementById("courseForm").submit();
+        }
+    </script>
 </body>
 
 </html>
