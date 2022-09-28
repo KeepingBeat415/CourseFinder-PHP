@@ -1,4 +1,3 @@
-<?php include 'login-service.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 </head>
 <body>
-    <div>
+    <div class="wrapper">
         <h2>Login</h2>
         <form action="login-service" method="post">
                 <label>Username</label>
