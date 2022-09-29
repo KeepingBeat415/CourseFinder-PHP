@@ -1,16 +1,26 @@
 <?php
-//Initialize the session
+// Initialize session
 session_start();
-
 // Include config file
 require_once "config.php";
-
-// Showing ERROR
+// Display ERROR Messages
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Define variables and initialize with empty values
+//Check whether user is already logged in, and redirect to home page
+if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true){
+
+    if($_SESSION["user_type"]=="admin"){
+        header("location: admin/admin_home.php");
+    }
+    else{
+        header("location: student.php");
+    }
+
+}
+
+// Initialize variables
 $username = $password = $user_type = "";
 $username_err = $password_err = "";
 
@@ -23,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Bind variables to the prepared statement as parameters
         mysqli_stmt_bind_param($stmt, "s", $username);
 
-        // Set parameters
         $username = $_POST["username"];
         $password = $_POST["password"];
 
@@ -31,38 +40,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mysqli_stmt_execute($stmt)) {
             // Store result
             mysqli_stmt_store_result($stmt);
-            // Check if username exists, if yes then verify password
+            // Check username exists, then verify password
             if (mysqli_stmt_num_rows($stmt) == 1) {
                 // Bind result variables
                 mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $user_type);
 
                 if (mysqli_stmt_fetch($stmt)) {
-
+                    // Check password, then start a new session
                     if (password_verify($password, $hashed_password)) {
-                        // Password is correct, so start a new session
-                        session_start();
 
+                        session_start();
                         //Store data in session variables
                         $_SESSION["logged_in"] = true;
+                        $_SESSION["user_type"] = $user_type;
                         $_SESSION["id"] = $id;
 
                         // Redirect user to admin or student page
                         if ($user_type == "admin") {
-                            header("location: admin.php");
+                            header("location: admin/admin_home.php");
                         } else {
                             header("location: student.php");
                         }
                     } else {
-                        // Display an error message if password is not valid
-                        $password_err = "The password you entered was not valid.";
+                        // Display error message when password is not valid
+                        $password_err = "Password was not valid.";
                     }
                 }
             } else {
-                // Display an error message if username doesn't exist
-                $username_err = "No account found with that username.";
+                // Display error message when username doesn't exist
+                $username_err = "Username was not valid.";
             }
         } else {
-            echo "Oops! Something went wrong. Please try again later.";
+            echo "Oops! Something went wrong.";
         }
         // Close statement
         mysqli_stmt_close($stmt);
@@ -70,5 +79,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 // Close connection
 mysqli_close($conn);
-// }
 ?>
