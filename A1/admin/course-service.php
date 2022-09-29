@@ -1,13 +1,9 @@
 <?php
-include('./config.php');
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   $code = $title = $semester = $days = $time = $instructor = $room = "";
-  $start_date = $end_date = "";
+  $start_date = $end_date = $successful = "";
 
   // Check POST request data
   if (!empty(($_POST))) {
@@ -32,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $end_date = date('y-m-d', mktime(0, 0, 0, 4, 30, intval(substr($_POST["semester"], -4))));
       }
       if (mysqli_stmt_execute($stmt)) {
-        header('location: create.php');
+        $successful = "Course created Successfully.";
       } else {
         echo "Something went wrong.", mysqli_stmt_error($stmt);
       }
@@ -42,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     echo "Could not retrieve any data. Please try again.";
   }
-} else {
-  echo "Something went wrong.";
-}
+} 
+    // Close connection
+    mysqli_close($conn);
+?>
