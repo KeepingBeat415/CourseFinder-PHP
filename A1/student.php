@@ -7,7 +7,6 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Administrator</h1>
-  <h2>Test Github Webhook</h2>
+  <h1>Student</h1>
 </body>
 </html>
