@@ -2,7 +2,7 @@
 session_start();
 require_once '../config.php';
 if(!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true){
-    header("location: login.php");
+    header("location: ../login.php");
     exit;
 }
 $user_id = $_SESSION['id'];
@@ -28,3 +28,18 @@ $user_id = $_SESSION['id'];
 
   <title>Administrator</title>
 </head>
+
+<body>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="admin_home.php">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Course</a></li>
+        <li><a href="../logout.php">Logout</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+  </nav>
