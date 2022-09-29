@@ -24,7 +24,7 @@
 <body>
   <div class="container-fluid" style="margin-top: 75px">
     <h2>Create Course</h2>
-    <form action="route/course-route.php" id="courseForm" name="courseForm" onsubmit="return validateForm()"
+    <form action="service/course-service.php" name="courseForm" onsubmit="return validateForm()"
       method="POST">
       <div class="form-group">
         <label>Course Code</label>
@@ -87,6 +87,7 @@
     function validateForm() {
       let form = document.forms["courseForm"];
       // VALIDATE HERE
+      submit();
     }
 
     function submit() {
