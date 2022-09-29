@@ -63,12 +63,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         }
                     } else {
                         // Display error message when password is not valid
-                        $password_err = "Password was not valid.";
+                        $password_err = "Password is incorrect.";
                     }
                 }
             } else {
                 // Display error message when username doesn't exist
-                $username_err = "Username was not valid.";
+                $username_err = "Username is not exist.";
             }
         } else {
             echo "Oops! Something went wrong.";

@@ -11,11 +11,6 @@
 
     // Processing form data
     if($_SERVER["REQUEST_METHOD"] == "POST"){
-        
-        // Validate password whether match
-        if($_POST["password"] != $_POST["confirm_password"]){
-            $password_err = "Password did not match.";
-        }
         // Prepare a select statement
         $sql = "SELECT id FROM Users WHERE username = ?";
         // Validate username whether exist

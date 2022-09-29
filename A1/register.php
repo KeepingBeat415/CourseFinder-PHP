@@ -21,6 +21,9 @@
 
   <!-- Custom styles for this template -->
   <link href="signin.css" rel="stylesheet">
+
+  <script type="text/javascript" src="functions.js"></script>
+
 </head>
 
 <body>
@@ -34,7 +37,7 @@
             <form action="register.php" method="post">
               <p class="text-center h2 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
               <?php
-              if (!empty($password_err) || !empty($username_err)) {
+              if (!empty($username_err)) {
                 echo "
             <div class=\"form-row\">
               <div class=\"form-group col-md-12\">
@@ -51,11 +54,12 @@
                 </div>
                 <div class="form-group col-md-4">
                   <label>Password</label>
-                  <input type="password" name="password" pattern="^\S+$" class="form-control" />
+                  <input type="password" name="password" id="password" pattern="^\S+$" class="form-control" />
                 </div>
                 <div class="form-group col-md-4">
                   <label>Confirm Password</label>
-                  <input type="password" name="confirm_password" pattern="^\S+$" class="form-control" />
+                  <input type="password" name="confirm_password" id="confirm_password" pattern="^\S+$" class="form-control" onkeyup="validate_password()"/>
+                  <span id="wrong_pass_alert"></span>
                 </div>
               </div>
 
@@ -115,8 +119,8 @@
 
               <div class="form-row">
                 <div class="form-group col-md-12">
-                  <input type="submit" class="btn btn-primary" value="Submit" />
-                  <input type="reset" class="btn btn-default" value="Reset" />
+                  <button id="submit" type="submit" class="btn btn-primary">SUBMIT</button>
+                  <button type="reset" class="btn btn-default">RESET</button>
                   <p style="padding: 15px 0px 0px 0px;">Already have an account? <a href="login.php">Login here</a>.</p>
                 </div>
               </div>
