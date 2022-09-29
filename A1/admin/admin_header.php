@@ -37,7 +37,7 @@ $user_id = $_SESSION['id'];
       <ul class="nav navbar-nav">
         <li class="active"><a href="admin_home.php">Home</a></li>
         <li><a href="#">Profile</a></li>
-        <li><a href="create_course.php">Course</a></li>
+        <li><a href="course_create.php">Course</a></li>
         <li><a href="../logout.php">Logout</a></li>
       </ul>
     </div><!--/.nav-collapse -->
