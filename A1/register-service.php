@@ -8,6 +8,7 @@
     // Initialize variables
     $username = $password = $first_name = $last_name = $address = "";
     $email = $phone_number = $DOB = $user_type = $password_err = $username_err="";
+    $successful = "";
 
     // Processing form data
     if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -52,7 +53,7 @@
                 $user_type = $_POST["user_type"];
                 // Insert into database
                 if(mysqli_stmt_execute($stmt)){
-                    header("location: login.php");
+                    $successful = "Course created Successfully.";
                 } else{
                     echo "Oops! Something went wrong." . mysqli_stmt_error($stmt);
                 }
