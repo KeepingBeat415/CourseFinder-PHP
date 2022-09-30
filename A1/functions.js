@@ -5,6 +5,11 @@ function validate_password() {
     document.getElementById('wrong_pass_alert').style.color = 'red';
     document.getElementById('wrong_pass_alert').innerHTML = 'Password is Not matched.';
     document.getElementById('submit').disabled = true;
-    document.getElementById('create').style.opacity = 0.4;
+    document.getElementById('submit').style.opacity = 0.4;
+  } else {
+    document.getElementById('wrong_pass_alert').style.color = 'white';
+    document.getElementById('wrong_pass_alert').innerHTML = '';
+    document.getElementById('submit').disabled = false;
+    document.getElementById('submit').style.opacity = 1;
   }
 }

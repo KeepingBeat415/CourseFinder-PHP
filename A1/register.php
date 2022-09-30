@@ -47,6 +47,17 @@
               ";
               }
               ?>
+              <?php
+              if (!empty($successful)) {
+                echo "
+                <div class=\"form-row\">
+                <div class=\"form-group col-md-12\">
+                  <div class=\"alert alert-success\" role=\"alert\" style=\"text-align: center;\">$successful</div>
+                </div>
+              </div>
+                ";
+              }
+              ?>
               <div class="form-row">
                 <div class="form-group col-md-4">
                   <label>Username</label>
@@ -58,7 +69,7 @@
                 </div>
                 <div class="form-group col-md-4">
                   <label>Confirm Password</label>
-                  <input type="password" name="confirm_password" id="confirm_password" pattern="^\S+$" class="form-control" onkeyup="validate_password()"/>
+                  <input type="password" name="confirm_password" id="confirm_password" pattern="^\S+$" class="form-control" onkeyup="validate_password()" />
                   <span id="wrong_pass_alert"></span>
                 </div>
               </div>
@@ -75,13 +86,7 @@
 
                 <div class="form-group col-md-4">
                   <label>Email</label>
-                  <input 
-                    name="email" 
-                    type="email" 
-                    class="form-control" 
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                    required 
-                    title="Please enter valid information to proceed." />
+                  <input name="email" type="email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required title="Please enter valid information to proceed." />
                 </div>
 
               </div>
@@ -108,12 +113,7 @@
               <div class="form-row">
                 <div class="form-group col-md-12">
                   <label>Address</label>
-                  <input 
-                    type="text" 
-                    class="form-control" 
-                    name="address" 
-                    required 
-                    title="Please enter valid information to proceed." />
+                  <input type="text" class="form-control" name="address" required title="Please enter valid information to proceed." />
                 </div>
               </div>
 
