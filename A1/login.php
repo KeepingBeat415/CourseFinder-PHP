@@ -37,13 +37,31 @@
         }
       ?>
       <label class="sr-only">Username</label>
-      <input name="username" class="form-control" placeholder="Username" required autofocus>
+      <input name="username" class="form-control" placeholder="Username" id="username" onkeyup="validate_username()" required autofocus>
+      <span id="exist_space_alert"></span>
       <label class="sr-only">Password</label>
       <input type="password" name="password" class="form-control" placeholder="Password" required>
       <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit" id="submit">Sign in</button>
     </form>
 
   </div> <!-- /container -->
   </body>
+
+  <script>
+    function validate_username(){
+      var username = document.getElementById('username').value;
+      if(/\s/g.test(username)){
+        document.getElementById('exist_space_alert').style.color = 'red';
+        document.getElementById('exist_space_alert').innerHTML = 'Cannot contains whitespace.';
+        document.getElementById('submit').disabled = true;
+        document.getElementById('submit').style.opacity = 0.4;
+      } else {
+        document.getElementById('exist_space_alert').style.color = 'white';
+        document.getElementById('exist_space_alert').innerHTML = '';
+        document.getElementById('submit').disabled = false;
+        document.getElementById('submit').style.opacity = 1;
+      }
+    }
+  </script>
 </html>

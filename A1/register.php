@@ -65,7 +65,7 @@
                 </div>
                 <div class="form-group col-md-4">
                   <label>Password</label>
-                  <input type="password" name="password" id="password" pattern="^\S+$" class="form-control" />
+                  <input type="password" name="password" id="password" pattern="^\S+$" class="form-control" onkeyup="validate_password()"/>
                 </div>
                 <div class="form-group col-md-4">
                   <label>Confirm Password</label>
