@@ -26,6 +26,7 @@ $user_id = $_SESSION['id'];
   <!-- Custom styles for this template -->
   <link href="../theme.css" rel="stylesheet" />
 
+  <script type="text/javascript" src="../functions.js"></script>
   <title>Administrator</title>
 </head>
 

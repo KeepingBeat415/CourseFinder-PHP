@@ -13,3 +13,35 @@ function validate_password() {
     document.getElementById('submit').style.opacity = 1;
   }
 }
+
+function validate_search_student() {
+  var student_id = document.getElementById('search_student').value;
+
+  if (!/^\d+$/.test(student_id)) {
+    document.getElementById('invalidate_id_alert').style.color = 'red';
+    document.getElementById('invalidate_id_alert').innerHTML = 'student ID only contains number.';
+    document.getElementById('search_student_submit').disabled = true;
+    document.getElementById('search_student_submit').style.opacity = 0.4;
+  } else {
+    document.getElementById('invalidate_id_alert').style.color = 'white';
+    document.getElementById('invalidate_id_alert').innerHTML = '';
+    document.getElementById('search_student_submit').disabled = false;
+    document.getElementById('search_student_submit').style.opacity = 1;
+  }
+}
+
+function validate_search_course() {
+  var course_code = document.getElementById('search_course').value;
+
+  if (!/^([A-Z]{3,4})-(\d{3,4})$/.test(course_code)) {
+    document.getElementById('invalidate_course_alert').style.color = 'red';
+    document.getElementById('invalidate_course_alert').innerHTML = 'Should be in the form SOEN-387, MANA-2257, etc.';
+    document.getElementById('search_course_submit').disabled = true;
+    document.getElementById('search_course_submit').style.opacity = 0.4;
+  } else {
+    document.getElementById('invalidate_course_alert').style.color = 'white';
+    document.getElementById('invalidate_course_alert').innerHTML = '';
+    document.getElementById('search_course_submit').disabled = false;
+    document.getElementById('search_course_submit').style.opacity = 1;
+  }
+}
