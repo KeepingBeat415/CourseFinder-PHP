@@ -45,3 +45,30 @@ function validate_search_course() {
     document.getElementById('search_course_submit').style.opacity = 1;
   }
 }
+
+function getSearchResults() {
+  var results = document.getElementById('search_results');
+  var searchVal = document.getElementById('search_course').value;
+
+  if (searchVal.length < 1) {
+    results.style.display = 'none';
+    return;
+  }
+
+  //console.log('searchVal : ' + searchVal);
+  var xhr = new XMLHttpRequest();
+  var url = 'search_results.php?search=' + searchVal;
+  // open function
+  xhr.open('GET', url, true);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var text = xhr.responseText;
+      //console.log('response from: ' + xhr.responseText);
+      results.innerHTML = text;
+      results.style.display = 'block';
+    }
+  };
+
+  xhr.send();
+}
