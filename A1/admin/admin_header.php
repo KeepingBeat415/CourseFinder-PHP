@@ -1,15 +1,16 @@
-<?php 
+<?php
 session_start();
 require_once '../config.php';
-if(!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true){
-    header("location: ../login.php");
-    exit;
+if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
+  header("location: ../login.php");
+  exit;
 }
 $user_id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,24 +24,29 @@ $user_id = $_SESSION['id'];
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   <!-- Custom styles for this template -->
   <link href="../theme.css" rel="stylesheet" />
 
-  <script type="text/javascript" src="../functions.js"></script>
+  <script>
+    <?php require_once("../functions.js"); ?>
+  </script>
   <title>Administrator</title>
 </head>
 
 <body>
   <!-- Fixed navbar -->
   <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container">
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="admin_home.php">Home</a></li>
-        <!-- <li><a href="#">Profile</a></li> -->
-        <li><a href="course_create.php">Course</a></li>
-        <li><a href="../logout.php">Logout</a></li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
+    <div class="container">
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="admin_home.php">Home</a></li>
+          <!-- <li><a href="#">Profile</a></li> -->
+          <li><a href="course_create.php">Course</a></li>
+          <li><a href="../logout.php">Logout</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
   </nav>

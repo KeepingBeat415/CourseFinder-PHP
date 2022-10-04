@@ -7,7 +7,7 @@ if (isset($_POST['search_course'])) {
             ";
   } else {
     $course_code = $_POST['course_code'];
-    $sql = "SELECT Users.id, Users.first_name, Users.last_name, Users.phone_number,Users.email FROM Users JOIN Enrolled_In ON Users.id = Enrolled_In.student_id JOIN Course ON Course.id = Enrolled_In.course_id WHERE Course.code = '$course_code'";
+    $sql = "SELECT Users.id, Users.first_name, Users.last_name, Users.phone_number,Users.email FROM Users JOIN Enrolled_In ON Users.id = Enrolled_In.student_id JOIN Course ON Course.id = Enrolled_In.course_id WHERE BINARY Course.code = '$course_code'";
 
     if ($result = mysqli_query($conn, $sql)) {
 
@@ -25,7 +25,7 @@ if (isset($_POST['search_course'])) {
           echo "<tbody>";
           echo "<tr>";
           echo "<td>" . $row['id'] . "</td>";
-          echo "<td>" . $row['first_name'] .' '. $row['last_name'] ."</td>";
+          echo "<td>" . $row['first_name'] . ' ' . $row['last_name'] . "</td>";
           echo "<td>" . $row['phone_number'] . "</td>";
           echo "<td>" . $row['email'] . "</td>";
           echo "</tr>";
@@ -41,4 +41,3 @@ if (isset($_POST['search_course'])) {
     }
   }
 }
-?>
