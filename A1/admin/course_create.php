@@ -1,5 +1,5 @@
 <?php include'admin_header.php' ?>
-<?php include'course-service.php' ?>
+<?php include'course_service.php' ?>
 
   <div class="container-fluid" style="margin-top: 75px">
     <h2>Create Course</h2>
