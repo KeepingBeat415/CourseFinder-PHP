@@ -1,15 +1,17 @@
-<?php include'admin_header.php' ?>
-<?php include'course_service.php' ?>
+<?php include 'admin_header.php' ?>
+<?php include 'course_service.php' ?>
 
-  <div class="container-fluid" style="margin-top: 75px">
+<html>
+
+<body>
+  <div class="container-fluid">
     <h2>Create Course</h2>
-    <?php 
-        if(!empty($successful)){
-          echo "<div class=\"alert alert-success\" role=\"alert\">$successful</div>";
-        }
+    <?php
+    if (!empty($successful)) {
+      echo "<div class=\"alert alert-success\" role=\"alert\">$successful</div>";
+    }
     ?>
-    <form action="course_create.php" name="courseForm" onsubmit="return validateForm()"
-      method="POST">
+    <form action="course_create.php" name="courseForm" onsubmit="return validateForm()" method="POST">
       <div class="form-group">
         <label>Course Code</label>
         <input type="text" name="code" class="form-control" required>
@@ -42,7 +44,7 @@
         <label>Room</label>
         <input type="text" name="room" class="form-control" required>
       </div>
-      <br/>
+      <br />
       <button type="submit" class="btn btn-primary mb-2">Create Course</button>
     </form>
   </div>

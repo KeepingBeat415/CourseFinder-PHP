@@ -15,7 +15,7 @@ if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true){
         header("location: admin/admin_home.php");
     }
     else{
-        header("location: student.php");
+        header("location: student/student_home.php");
     }
 
 }
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         if ($user_type == "admin") {
                             header("location: admin/admin_home.php");
                         } else {
-                            header("location: student.php");
+                            header("location: student/student_home.php");
                         }
                     } else {
                         // Display error message when password is not valid
