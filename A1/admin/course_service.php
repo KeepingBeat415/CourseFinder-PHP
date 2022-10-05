@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $end_date = date('y-m-d', mktime(0, 0, 0, 4, 30, intval(substr($_POST["semester"], -4))));
       }
       if (mysqli_stmt_execute($stmt)) {
-        $successful = "Course created Successfully.";
+        $successful = "Course created successfully.";
       } else {
         echo "Something went wrong.", mysqli_stmt_error($stmt);
       }

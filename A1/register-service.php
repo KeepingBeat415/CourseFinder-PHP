@@ -53,7 +53,7 @@
                 $user_type = $_POST["user_type"];
                 // Insert into database
                 if(mysqli_stmt_execute($stmt)){
-                    $successful = "Course created Successfully.";
+                    $successful = "Account created successfully.";
                 } else{
                     echo "Oops! Something went wrong." . mysqli_stmt_error($stmt);
                 }
