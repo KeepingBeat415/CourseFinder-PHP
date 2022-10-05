@@ -8,17 +8,17 @@ if (isset($_POST['search_student'])) {
   } else {
     $student_id = $_POST['student_id'];
     // SQL Student Information
-    $sql = "SELECT first_name, last_name FROM Users WHERE id = '$student_id'";
+    $sql = "SELECT first_name, last_name FROM Users WHERE id = '$student_id' AND user_type = 'student'";
 
     if ($result = mysqli_query($conn, $sql)) {
       if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
-          echo "<h4> Name: ". $row['first_name'] .' '. $row['last_name'] ."</h4>";
+          echo "<h4> Name: " . $row['first_name'] . ' ' . $row['last_name'] . "</h4>";
         }
         $sql = "SELECT Course.code, Course.title, Course.semester, Course.days, Course.time, Course.room FROM Course JOIN Enrolled_In ON Course.id = Enrolled_In.course_id WHERE Enrolled_In.student_id = '$student_id'";
 
         if ($result = mysqli_query($conn, $sql)) {
-    
+
           if (mysqli_num_rows($result) > 0) {
             echo "<table class=\"table table-striped\">
                     <thead>
@@ -49,14 +49,12 @@ if (isset($_POST['search_student'])) {
           ";
           }
         }
-      }else{
+      } else {
         echo "<div class=\"alert alert-secondary\" role=\"alert\">
               Oops! No student ID matching your search.
             </div>
             ";
       }
     }
-
-
   }
 }
