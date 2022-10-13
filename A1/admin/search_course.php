@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['search_course'])) {
   if (empty($_POST['course_code'])) {
-    echo "<div class=\"alert alert-secondary\" role=\"alert\">
+    echo "<div class=\"alert alert-secondary\" style=\"position: absolute; margin-top: 50px;\" role=\"alert\">
               Oops! No course matching your search.
             </div>
             ";
@@ -33,7 +33,7 @@ if (isset($_POST['search_course'])) {
         }
         echo "</table>";
       } else {
-        echo "<div class=\"alert alert-secondary\" role=\"alert\">
+        echo "<div class=\"alert alert-secondary\"  style=\"position: absolute; margin-top: 50px;\" role=\"alert\">
         Oops! No course matching your search.
       </div>
       ";
