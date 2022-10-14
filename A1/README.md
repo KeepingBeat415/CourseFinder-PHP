@@ -1,6 +1,4 @@
-## URL - http://localhost/SOEN-387/A1/login.php
-
-## login Page
+## login Page -- http://localhost/SOEN-387/A1/login.php
 
 - Username and password validation.
 
