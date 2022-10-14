@@ -1,6 +1,6 @@
 <?php
 include 'student_header.php';
-$enroll = "select e.id, c.code, c.title , c.semester from course c, enroll_in e, users u where u.id = {$user_id} and u.id = e.student_id and e.course_id = c.id ORDER BY c.id;";
+$enroll = "select e.id, c.code, c.title , c.semester from Course c, Enrolled_In e, Users u where u.id = {$user_id} and u.id = e.student_id and e.course_id = c.id ORDER BY c.id;";
 //$enroll = "select title from course;";
 $result = $conn->query($enroll);
 ?>

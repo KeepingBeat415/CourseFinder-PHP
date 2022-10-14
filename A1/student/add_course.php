@@ -1,6 +1,6 @@
 <?php
 include 'student_header.php';
-$not_enroll = "select c.id, c.code, c.title , c.semester from course c where c.id not in (select e.course_id from enroll_in e, users u where u.id = {$user_id} and e.student_id = u.id) ORDER BY c.id;";
+$not_enroll = "select c.id, c.code, c.title , c.semester from Course c where c.id not in (select e.course_id from Enrolled_In e, Users u where u.id = {$user_id} and e.student_id = u.id) ORDER BY c.id;";
 
 //$enroll = "select title from course;";
 $result = $conn->query($not_enroll);
