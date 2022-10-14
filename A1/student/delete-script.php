@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
     $row = $result->fetch_assoc();
     $start_date = $row['end_date'];
     $date = DateTime::createFromFormat("Y-m-d", $start_date);
-    if (new DateTime('now') > $date) {
+    if (new DateTime('now') < $date) {
         echo '<script>alert("Deadline passed")</script>';
         echo '<script>window.location.href="student_home.php";</script>';
     } else {
