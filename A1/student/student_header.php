@@ -6,6 +6,12 @@ if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
   exit;
 }
 $user_id = $_SESSION['id'];
+
+// Display ERROR
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +48,6 @@ $user_id = $_SESSION['id'];
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="student_home.php">Home</a></li>
-          <!-- <li><a href="#">Profile</a></li> -->
           <li><a href="">Enroll</a></li>
           <li><a href="../logout.php">Logout</a></li>
         </ul>

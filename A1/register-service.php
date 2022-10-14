@@ -40,7 +40,7 @@
             // Attempt to execute the prepared statement   
             if($stmt = mysqli_prepare($conn, $sql)){
                 // Bind variables to the prepared statement as parameters
-                mysqli_stmt_bind_param($stmt, "sssssssss", $username, $password, $first_name, $last_name, $email, $address, $phone_number, $DOB, $user_type);
+                mysqli_stmt_bind_param($stmt, "sssssssss", $username, $password, $first_name, $last_name, $address, $email, $phone_number, $DOB, $user_type);
                 // Set parameters
                 $username = $_POST["username"];
                 $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Creates a password hash
@@ -68,4 +68,3 @@
     }
     // Close connection
     mysqli_close($conn);
-?>
