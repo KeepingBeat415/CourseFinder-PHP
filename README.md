@@ -1,6 +1,6 @@
-## Homepage/Login Page -- http://localhost/SOEN-387/A1
+## Homepage/Login Page -- http://localhost/SOEN-387/src
 
-- Username and password validation.
+- Username and Password validation.
 
 ![My Image](images/login.png)
 
@@ -18,8 +18,8 @@
 
 ## Search Course Drop-down List
 
-- Fill up search list from database 'Course' table
-- Auto filter out unmatched course
+- Fill up search list from database 'Course' table.
+- Auto filter out unmatched course.
 
 ![My Image](images/search_course_list.png)
 
