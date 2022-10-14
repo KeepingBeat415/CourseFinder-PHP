@@ -12,13 +12,13 @@
 
 ## Create Course Page
 
-- Form input validation.
+- Form inputs validation.
 
 ![My Image](images/create_course.png)
 
 ## Search Course Drop-down List
 
-- Fill up search list from Database Course Table
+- Fill up search list from database 'Course' table
 - Auto filter out unmatched course
 
 ![My Image](images/search_course_list.png)
