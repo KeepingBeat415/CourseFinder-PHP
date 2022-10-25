@@ -65,7 +65,7 @@
                 </div>
                 <div class="form-group col-md-4">
                   <label>Password</label>
-                  <input type="password" name="password" id="password" pattern="^\S+$" class="form-control" onkeyup="validate_password()"/>
+                  <input type="password" name="password" id="password" pattern="^\S+$" class="form-control" onkeyup="validate_password()" />
                 </div>
                 <div class="form-group col-md-4">
                   <label>Confirm Password</label>
@@ -121,11 +121,10 @@
                 <div class="form-group col-md-12">
                   <button id="submit" type="submit" class="btn btn-primary">SUBMIT</button>
                   <button type="reset" class="btn btn-default">RESET</button>
-                  <p style="padding: 15px 0px 0px 0px;">Already have an account? <a href="login.php">Login here</a>.</p>
                 </div>
               </div>
-
             </form>
+            <p style="padding: 15px 0px 0px 0px;">Already have an account? <a href="index.php">Login here</a>.</p>
           </div>
         </div>
       </div>

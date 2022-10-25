@@ -2,7 +2,7 @@
 session_start();
 require_once '../config.php';
 if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-  header("location: ../login.php");
+  header("location: ../index.php");
   exit;
 }
 $user_id = $_SESSION['id'];
@@ -48,7 +48,6 @@ error_reporting(E_ALL);
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="student_home.php">Home</a></li>
-          <li><a href="">Enroll</a></li>
           <li><a href="../logout.php">Logout</a></li>
         </ul>
       </div>

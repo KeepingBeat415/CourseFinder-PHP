@@ -9,10 +9,14 @@
       <div class="form-row">
         <div class="form-group col-md-8">
           <input type="search" class="form-control" name="course_code" placeholder="Search by Course Code..." id="search_course" onkeyup="validate_search_course(); getSearchResults()">
-          <span id="invalidate_course_alert"></span>
         </div>
         <div class="form-group col-md-4">
           <button class="btn btn-primary" type="submit" name="search_course" id="search_course_submit">Submit</button>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <span id="invalidate_course_alert"></span>
         </div>
       </div>
       <div class="form-row">
@@ -31,10 +35,14 @@
       <div class="form-row">
         <div class="form-group col-md-8">
           <input type="search" class="form-control" name="student_id" placeholder="Search by Student ID..." id="search_student" onkeyup="validate_search_student()">
-          <span id="invalidate_id_alert"></span>
         </div>
         <div class="form-group col-md-4">
           <button class="btn btn-primary" type="submit" name="search_student" id="search_student_submit">Submit</button>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <span id="invalidate_id_alert"></span>
         </div>
       </div>
     </form>

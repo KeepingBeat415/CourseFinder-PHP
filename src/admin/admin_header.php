@@ -2,7 +2,7 @@
 session_start();
 require_once '../config.php';
 if (!isset($_SESSION["logged_in"]) || $_SESSION["logged_in"] !== true) {
-  header("location: ../login.php");
+  header("location: ../index.php");
   exit;
 }
 $user_id = $_SESSION['id'];
